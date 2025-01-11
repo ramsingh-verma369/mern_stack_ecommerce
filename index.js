@@ -17,7 +17,7 @@ app.use(express.json());
 app.use(morgan('dev'));
 
 // routes
-app.post('/api/v1/auth',authRoutes)
+app.use('/api/v1/auth',authRoutes)
 app.get('/', (req, res) => {
   res.send("<h1>Hello World! This is my mern stack ecommerce website</h1>");
 });
