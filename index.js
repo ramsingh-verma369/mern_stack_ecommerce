@@ -1,17 +1,23 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import morgan from 'morgan';
-import connectDB from './config/data.js';
 
-dotenv.config();
+
+// import files
+import connectDB from './config/data.js';
+import authRoutes from './routes/auth.route.js';
 
 const app = express();
+dotenv.config();
+
 const PORT = process.env.PORT || 3000;
 
+// middlewares
 app.use(express.json());
 app.use(morgan('dev'));
 
-
+// routes
+app.post('/api/v1/auth',authRoutes)
 app.get('/', (req, res) => {
   res.send("<h1>Hello World! This is my mern stack ecommerce website</h1>");
 });
